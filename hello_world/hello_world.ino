@@ -1,12 +1,13 @@
 /*
- * File:Hello_world
- * Date:2020/09/24
- * 使用板子:NodeMCU
+ *   File: 在序列埠輸出Hello_world
+ *   Date: 2020/09/24
+ *   main: zangmenhsu
+ *   使用板子:NodeMCU
 */
 
 void setup() {
   // put your setup code here, to run once:
-Serial.begin(9600); //只能設9600(有改過)
+  Serial.begin(9600); //只能設9600(有改過)
 }
 
 void loop() {
