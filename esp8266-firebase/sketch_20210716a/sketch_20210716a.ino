@@ -11,14 +11,17 @@
 
 
 /* Firebase URL&auth key*/
-#define firebaseURl "esp8266-demo-a5cca-default-rtdb.firebaseio.com"
-#define authCode "AAAAlRmNeNs:APA91bEBBgtgj8is_l9aEObtp0cL3aMygAmaLQoo4rLaWqp383csT9XoFg7-b2R8_-qzwcMZxRpfrA-UdNWKwg8F2EdOa4kBn2_CCWgEfKvTx7I_6AZDIq-pTTdPWE4xE7cdYBRHOS23"
+#define firebaseURl "https://esp8266-demo-a5cca-default-rtdb.firebaseio.com"
+#define authCode "AAAAlRmNeNs:APA91bEBBgtgj8is_l9aEObtp0cL3aMygAmaLQoo4rLaWqp383csT9XoFg7-b2R8_-qzwcMZxRpfrA-UdNWKwg8F2EdOa4kBn2_CCWgEfKvTx7I_6AZDIq-pTTdPWE4xE7cdYBRHOS23 "
 
 /*WiFi的連線設置 */
 #define wifi_name "kitty"
 #define wifi_password "26104012"
 
 FirebaseData Firebase_led;
+FirebaseData Firebase_temp;
+int pasttime;
+int t=0;
 int led;
 
 
@@ -26,7 +29,9 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   setup_Wifi();
-  setup_Firebase();
+  //setup_Firebase();
+  Firebase.begin(firebaseURl, authCode);
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
@@ -37,19 +42,26 @@ void loop() {
 
 /*資料上伝*/
 void get_Data() {
+  int myTime = millis();
+  if(myTime - pasttime >= 1000){
+     pasttime = myTime;
+     t++;
+     Firebase.setInt(Firebase_temp,"/ledopen/open",t);
+   }
+   
   Firebase.getInt(Firebase_led,"/ledopen/open",led);
-  if(led == 0){
-      digitalWrite(D4, HIGH); // turn the LED on (HIGH is the voltage level)
-      Serial.println("0");
+  
+  if(led % 2  == 0){
+      digitalWrite(LED_BUILTIN, LOW); 
   }else{
-      digitalWrite(D4, LOW); // turn the LED off by making the voltage LOW
+      digitalWrite(LED_BUILTIN, HIGH); 
   }
 }
 
 /*啟動firebase*/
-void setup_Firebase() {
+/*void setup_Firebase() {
   Firebase.begin(firebaseURl, authCode);
-}
+}*/
 
 /*WIFI連線*/
 void setup_Wifi() {
