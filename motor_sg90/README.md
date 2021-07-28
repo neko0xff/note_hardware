@@ -1,6 +1,8 @@
 # motor_SG90
 ## 功能
 * 類型:伺服馬達(servo motor)
+## 函式庫
+* Sevro.h (Arduino IDE 內建)
 ## 特性
 * 可以旋轉180度
 * 可透過PWM精準的控制
