@@ -12,7 +12,7 @@ void loop() {
   int sensorValue;
   sensorValue = analogRead(A0);
   /*
-   * 転換公式: sensorVoltage = sensorValue/1024* 供電電壓 (3.3V 或 5V) 
+   * 転換公式: sensorVoltage = sensorValue/1024* 供電電壓 (5(3.3V) 或 3.3(5V))
   */
   sensorVoltage = (float)sensorValue/1024*3.3;
 
@@ -29,9 +29,11 @@ void loop() {
   //delay(2000);
 }
 
+/*sensor輸出值(mV)転UV值*/
 int mv_to_uv(int sensor_value){
    int uv;
-   
+
+   /*分類*/
    if(sensor_value<=226) uv=0;
    else if(sensor_value<=227&&sensor_value<=317) uv=1;
    else if(sensor_value<=318&&sensor_value<=407) uv=2;
@@ -45,5 +47,5 @@ int mv_to_uv(int sensor_value){
    else if(sensor_value<=1079&&sensor_value<=1169) uv=10;
    else uv=11;
    
-   return uv;
+   return uv; //回伝uv值
 }
