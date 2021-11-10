@@ -26,7 +26,7 @@ void loop() {
   Serial.print("UV=");
   Serial.println(mv_to_uv(sensorValue));
   
-  //delay(2000);
+  delay(2000);
 }
 
 /*sensor輸出值(mV)転UV值*/
