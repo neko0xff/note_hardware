@@ -1,0 +1,58 @@
+<!-- 設定網頁編碼為UTF-8 -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- timer -->
+<script language="JavaScript">
+  function ShowTime(){
+　  document.getElementById('showbox').innerHTML = new Date();
+　  setTimeout('ShowTime()',1000);
+  }
+</script>
+
+<style>
+    html { height: 100%;}
+    body {
+            background-image: url(img/login.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+    }
+</style>
+
+<head>
+   <title>Login</title>
+</head>
+<body onLoad="ShowTime()">
+  <h1>&nbsp;</h1>
+  <table width="1000" border="0">
+    <tr>
+      <td height="50" align="center" valign="middle" >
+        <h1>登入主頁</h1>
+      </td>
+    </tr>
+    <tr>
+      <td height="173" align="center" valign="middle"><form name="form" method="post" action="connect.php">
+        <p>&nbsp;</p>
+        <p>帳號：
+          <input type="text" name="user" />
+          <br>
+          密碼：
+          <input type="password" name="password" />
+        </p>
+        <p> <br>
+          <input type="submit" name="button" value="登入" />
+          &nbsp;&nbsp;
+          <input type="reset" name="button" value="重新輸入" />
+          &nbsp;&nbsp;</p>
+      </form></td>
+    </tr>
+    <tr>
+      <td height="173" align="center" valign="middle"><p><strong>現在時間 </strong></p>
+        <div id="showbox"></div>
+      <p>&nbsp;</p></td>
+    </tr>
+</table>
+  <p>
+  <p>
+  </p>
+</body>
