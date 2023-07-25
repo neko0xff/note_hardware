@@ -1,0 +1,19 @@
+{
+  "name": "arduino_nodejs",
+  "version": "1.0.0",
+  "description": "arduino serial port server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zangmenhsu",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "ejs-locals": "^1.0.2",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15",
+    "serialport": "^9.2.8"
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <link rel="stylesheet" href="/table.css">
+    <head>
+        <title>UART Control</title>
+    </head>
+    <body>
+        <h1>控制台</h1>
+        <fieldset>
+           <legend>連線狀態</legend>
+            序列埠位置: <%= port %><br>
+            <div id=led_status>
+                LED:<br>
+                <table>
+                    <tr>
+                        <th>LED</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>LED1</td>
+                        <td><%= items[0] %></td>
+                    </tr>
+                    <tr>
+                        <td>LED2</td>
+                        <td><%= items[3] %></td>
+                    </tr>
+                    <tr>
+                        <td>LED3</td>
+                        <td><%= items[4] %></td>
+                    </tr>
+                    <tr>
+                        <td>LED4</td>
+                        <td><%= items[5] %></td>
+                    </tr>
+                </table>
+            </div>
+
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>LED</legend>
+            <head>各別LED開関</head>
+            <div id="1">
+                <from action="/LED1" method="get">
+                    LED1: <input type='button' value="開" onclick="location.href=`/LED1/ON`" >
+                    <input type='button' value="関" onclick="location.href=`/LED1/OFF`" >
+                </from><br>
+                <from action="/LED2" method="get">
+                    LED2: <input type='button' value="開" onclick="location.href=`/LED2/ON`" >
+                    <input type='button' value="関" onclick="location.href=`/LED2/OFF`" >
+                </from><br>
+                <from action="/LED3" method="get">
+                    LED3: <input type='button' value="開" onclick="location.href=`/LED3/ON`" >
+                    <input type='button' value="関" onclick="location.href=`/LED3/OFF`" >
+                </from>
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>LED亮法</legend>
+            <div id='2'>
+                <from action="/LED" method="get">
+                    pilix: <input type='button' value="開始 " onclick="location.href=`/LED/pilix`" >
+                    pwm(0~255): <input type='button' value="開始 " onclick="location.href=`/LED/pwm`" >
+                    全亮: <input type='button' value="開始 " onclick="location.href=`/LED_ALL/ON`" >
+                    全関: <input type='button' value="開始 " onclick="location.href=`/LED_ALL/OFF`" >
+                </from>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>序列埠</legend>
+            <div id='3'>
+                <from action='/spStatus' method='get'>
+                   
+                </from>
+            </div>
+        </fieldset>
+    </body>
+</html>
