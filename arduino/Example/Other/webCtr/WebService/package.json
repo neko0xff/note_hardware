@@ -9,7 +9,7 @@
   "author": "zangmenhsu",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^3.1.7",
+    "ejs": "^3.1.10",
     "ejs-locals": "^1.0.2",
     "express": "^4.19.2",
     "mysql": "^2.18.1",
