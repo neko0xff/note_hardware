@@ -1,0 +1,46 @@
+[package]
+authors = ["neko0xff <neko_0xff@protonmail.com>"]
+edition = "2021"
+readme = "README.md"
+name = "f103c8t6_p1"
+version = "0.1.0"
+
+[dependencies]
+cortex-m = {version="*",features = ["critical-section-single-core"]} # Access to the generic ARM peripherals
+cortex-m-rt = "*"               # Startup code for the ARM Core
+cortex-m-semihosting = "*"
+embedded-hal = "*"              # Access to generic embedded functions (`set_high`)
+panic-halt = "*"                # Panic handler
+nb = "*"
+debouncr = "*"
+rtt-target = "*"
+critical-section = "*"
+defmt-rtt = "*"
+
+# Uncomment for the panic example.
+# panic-itm = "0.4.1"
+
+# Uncomment for the allocator example.
+# alloc-cortex-m = "0.4.0"
+
+[dependencies.stm32f1xx-hal]
+version = "*"
+features = ["rt", "stm32f103", "medium"]
+
+# Uncomment for the device example.
+# Update `memory.x`, set target to `thumbv7em-none-eabihf` in `.cargo/config`,
+# and then use `cargo build --example device` to build it.
+# [dependencies.stm32f1]
+# features = ["stm32f103", "rt"]
+# version = "^0.7.3"
+
+# this lets you use `cargo fix`!
+[[bin]]
+name = "f103c8t6_p1"
+test = false
+bench = false
+
+[profile.release]
+codegen-units = 1 # better optimizations
+debug = true # symbols are nice and they don't increase the size on Flash
+lto = true # better optimizations
