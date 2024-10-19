@@ -11,7 +11,7 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "ejs-locals": "^1.0.2",
-    "express": "^4.19.2",
+    "express": "^4.21.1",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.22",
     "serialport": "^9.2.8"
